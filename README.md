@@ -1,17 +1,36 @@
-# ProyectoMundial
+## Proyecto Mundial Qatar 2022
+1. [Información General](#general-info)
+2. [Versiones utilizadas](#technologies)
+3. [Pasos para instalar el proyecto](#installation)
+4. [Colaboración](#collaboration)
+5. [FAQs](#faqs)
 
-## Página de Inicio/Home
-	Mostrara una pagina inicial en donde se vea una preview de los artículos del blog (ultimas entradas) con la opción “ver más” para ingresar al artículo especificado. Esta pagina será visible para todos los usuarios
+<a name="general-info"></a>
+### Información General
+Curso: Python - Comisión #41220 
+Nombre del proyecto: Proyecto Mundial Qatar 2022
+Integrantes: Francisco Terrile, Guillermo Acuña y Francisco Moretti
 
-## Página Blog de Noticias
-	Mostrara una pagina en donde se podrán ver los artículos ingresados por los usuarios. En esta pagina se podrán Crear/Editar/Borrar Artículos. Sera visible para todos los usuarios, pero solo los usuarios logueados podrán editarla.
+<a name="technologies"></a>
+### Versiones utilizadas
+*Django: Versión 4.1
+*GitHub: https://github.com/
 
-## Página Selecciones
-	Mostrara un listado de las selecciones que participaran en el mundial. Los Nombres/Banderas de las selecciones serán hipervínculos que redireccionarán la página a sus respectivas paginas en Wikipedia o paginas oficiales de las selecciones de futbol. Sera visible para todos los usuarios
+<a name="installation"></a>
+## Pasos para instalar el proyecto
+1. Crea una carpeta en tu computadora
+2. Crea un ambiente virtual dentro de la misma carpeta 
+3. Instalá Django en la misma carpeta
+4. Instalá Git y clonar el proyecto: git clone https://github.com/FranciscoTerrile/ProyectoMundial.git
+5. Posicionate sobre la carpeta y ejecutá 
+6. Podrás acceder al proyecto en el siguiente link: http://127.0.0.1:8000/
 
-## Página Estadios
-	Mostrará un listado de los estadios que participaran en el mundial. Los Nombres/Banderas de los estadios serán hipervínculos que redireccionarán la página a sus respectivas páginas en Wikipedia o paginas oficiales de las selecciones de futbol. Sera visible para todos los usuarios
+<a name="collaboration"></a>
+## Colaboración
+Estaremos muy contentos de poder recibir tu aporte a nuestro proyecto! Revisaremos los cambios que realizaste y los agregaremos al proyecto.
 
-## Página Acerca de..
-	Mostrará una descripción de los creadores de la página. Sera visible para todos los usuarios -->
+<a name="faqs"></a>
+## FAQs
+
+
 
