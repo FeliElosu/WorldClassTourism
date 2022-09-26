@@ -1,24 +1,44 @@
 {% extends "AppMundial/01-plantilla_base.html" %}
 
-{% block style_block %}
-<style>
-    table.coder-table {
-    border:3px solid;
-    }
-    th,
-    td {
-    border:1px solid;
-    padding:5px 10px;
-    }
-    .eliminado {
-    background-color: red;
-    }
-</style>
-{% endblock style_block %}
+{% load static%}
 
 {% block contenido_base %}
-
-<h1>Blog</h1>
-
+     <!-- Page Header-->
+     <header class="masthead" style="background-image: url('https://static01.nyt.com/images/2022/03/31/multimedia/world-cup-explainer/world-cup-explainer-superJumbo.jpg?quality=75&auto=webp)">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 left-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="site-heading">
+                        <h1>¡Bienvenido al blog de fans Qatar 2022!</h1>
+                        <span class="subheading">{{mensaje}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <br><p align="right"><button type="button" class="btn btn-primary"><a href="{% url 'New' %}" style="color:white; text-decoration:none;">Crear nuevo posteo</a></button> </p>
+<body>
+<div class="container px-4 px-lg-5">
+ <div class="row gx-4 gx-lg-5 left-content-center">
+    <div class="col-md-10 col-lg-8 col-xl-7">
+    {% for Posts in object_list %}
+    <div class="post-preview">
+        <h2 class="post-title">{{Posts.titulo}}</h2>
+        <h3 class="post-subtitle">{{Posts.equipo}}</h3>
+        <p class="post-meta">{{Posts.creado}}</p>
+        <p>
+            <button type="button" class="btn btn-primary"><a href="{% url 'Detail' Posts.id %}" style="color:white; text-decoration:none;">Leer Más</a></button>
+            {% if user.is_superuser %}
+            <button type="button" class="btn btn-primary"><a href="{% url 'post_Edit' Posts.id %}" style="color:white; text-decoration:none;">Editar</a></button>
+            <button type="button" class="btn btn-primary"><a href="{% url 'post_Delete' Posts.id %}" style="color:white; text-decoration:none;">Borrar</a></button>
+            {% endif %}
+        </p>
+        <!-- Divider-->
+        <hr class="my-4" />
+    {% endfor %}
+        </div>
+    </div>
+</div>
+</body>
 
 {% endblock contenido_base %}

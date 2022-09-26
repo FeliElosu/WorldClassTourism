@@ -25,13 +25,17 @@
     </head>
 
     <body>
-        <!-- Navigation-->
+          <!-- Navigation-->
         <nav class="navbar navbar-light bg-light static-top">
-            <div class="container">
+            <div class="container px-4 px-lg-5">
                 <a class="navbar-brand" href="{% url 'home' %}">HOME</a>
                 <a class="navbar-brand" href="{% url 'blog' %}">BLOG</a>
                 <a class="navbar-brand" href="{% url 'selecciones' %}">SELECCIONES</a>
                 <a class="navbar-brand" href="{% url 'estadios' %}">ESTADIOS</a>
+                {% if not request.user.is_authenticated %}
+                <button type="button" class="btn btn-primary"><a href="{% url 'login' %}" style="color:white; text-decoration:none;">ENTRAR</a></button></li>
+                <button type="button" class="btn btn-primary" style="margin-left: 10px;"><a href="{% url 'register' %}" style="color:white; text-decoration:none;">REGISTRARSE</a></button></li>
+                {% endif %}
                 {% if user.is_authenticated %}
                 <div class="dropdown">
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -43,8 +47,6 @@
                     <li><a class="dropdown-item" href="{% url 'logout' %}"><strong>Cerrar Sesión</strong></a></li>
                     </ul>
                 </div>
-                {% else %}
-                <a class="btn btn-primary" href="{% url 'register' %}">REGISTRARSE</a>
                 {% endif %}
             </div>
         </nav>
@@ -57,7 +59,6 @@
             {% endblock contenido_base %}
 
         </section>
-
 
 
         <!-- Footer-->

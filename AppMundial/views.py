@@ -1,95 +1,41 @@
-from django.shortcuts import render
-from django.contrib.auth.forms import AuthenticationForm
-from django.contrib.auth import login, authenticate
-from django.contrib.auth.views import LogoutView, LoginView
-from AppMundial.forms import UserRegisterForm, UserUpdateForm, AvatarFormulario
+from unittest import mock
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
+from django.template import Template, Context, loader
+from AppMundial.models import Posts
+from django.views.generic import ListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.urls import reverse, reverse_lazy
-from django.views.generic import UpdateView
-from django.contrib.auth.mixins import LoginRequiredMixin
-from django.contrib.auth.models import User
+from ProyectoMundial.views import login_request
 
 
-# Views de usuarios, registro, login o logout
-def register(request):
-    mensaje = ''
-    if request.method == 'POST':
-        form = UserRegisterForm(request.POST)
+# Vistas para el Blog
+class PostList(ListView):
+    model=Posts
+    template_name= 'AppMundial/03-blog.html'
 
-        if form.is_valid():
-            form.save()
-            return render(request, "AppMundial/02-home.html", {"mensaje":"Usuario creado con exito :"})
-        else:
-            mensaje = 'Cometiste un error en el registro'
-    formulario = UserRegisterForm()  # Formulario vacio para construir el html
-    context = {
-        'form': formulario,
-        'mensaje': mensaje
-    }
-    return render(request, "AppMundial/06-0-registro.html", context=context)
+class PostDetails(DetailView):
+    model=Posts
+    template_name= 'AppMundial/03-1-readpost.html'
 
-class ProfileUpdateView(LoginRequiredMixin, UpdateView):
-    model = User
-    form_class = UserUpdateForm
-    success_url = reverse_lazy('home')
-    template_name = 'AppMundial/07-0-form_perfil.html'
+class CreatePost(CreateView):
+    model=Posts
+    success_url = reverse_lazy('blog')
+    template_name = 'AppMundial/03-2-createpost.html'
+    fields = ['titulo', 'equipo', 'posteo', 'autor','image' ]
+class ModifyPost(UpdateView):
+    model=Posts
+    template_name = 'AppMundial/03-4-editpost.html'
+    success_url = reverse_lazy('blog')
+    fields = ['titulo', 'equipo', 'posteo']
+class DeletePost(DeleteView):
+    model=Posts
+    template_name='AppMundial/03-3-deletepost.html'
+    success_url = reverse_lazy('blog')
 
-    def get_object(self, queryset=None):
-        return self.request.user
 
-def agregar_avatar(request):
-    if request.method == 'POST':
 
-        form = AvatarFormulario(request.POST, request.FILES) #aquí me llega toda la información del html
 
-        if form.is_valid:   #Si pasó la validación de Django
-            avatar = form.save()
-            avatar.user = request.user
-            avatar.save()
-            return redirect(reverse('home'))
-
-    form = AvatarFormulario() #Formulario vacio para construir el html
-    return render(request, "AppMundial/07-1-form_avatar.html", {"form":form})
-
-def login_request(request):
-    next_url = request.GET.get('next')
-    if request.method == "POST":
-        form = AuthenticationForm(request, data = request.POST)
-        
-        if form.is_valid():
-            usuario = form.cleaned_data.get('username')
-            contra = form.cleaned_data.get('password')
-            user = authenticate(username=usuario, password=contra)
-            if user:
-                login(request=request, user=user)
-                if next_url:
-                    return redirect(next_url)
-                return render(request, "AppMundial/02-home.html", {"mensaje":f"Bienvenido {usuario}"})
-            else:
-                return render(request,"AppMundial/02-home.html", {"mensaje":"Error, datos incorrectos"})
-        else:
-            return render(request,"AppMundial/02-home.html", {"mensaje":"Error, formulario erroneo"})
-
-    form = AuthenticationForm()
-    return render(request,"AppMundial/06-1-login.html", {'form':form} )
-
-# class CustomLoginView(LoginView):                             ///"ver si se puede hacer el login y el logout con class"
-#     template_name = 'AppMundial/061-login.html'
-
-# Views de Pestañas
-class CustomLogoutView(LogoutView):
-    template_name = 'AppMundial/06-2-logout.html'
-
-def home(request):
-    return render(request, "AppMundial/02-home.html")
-
-def blog(request):
-    return render(request, "AppMundial/03-blog.html")
-
-def selecciones(request):
-    return render(request, "AppMundial/04-selecciones.html")
-
-def estadios(request):
-    return render(request, "AppMundial/05-estadios.html")
 
 

@@ -1,18 +1,10 @@
 from django.urls import path
-from AppMundial import views
-
+from . import views
+#URLS para el Blog
 urlpatterns = [
-#Registro usuario y sesion
-    path('login/', views.login_request, name = 'login'),
-    # path('login/', views.CustomLoginView.as_view, name = 'login'),
-    path('login/register/', views.register, name = 'register'),
-    path('logout/', views.CustomLogoutView.as_view(), name = 'logout'),
-# URLS Perfil
-    path('editar-perfil/', views.ProfileUpdateView.as_view(), name="editar_perfil"),
-    path('agregar-avatar/', views.agregar_avatar, name="agregar_avatar"),
-    #Pestaña Principal
-    path('', views.home, name="home"),
-    path('blog/', views.blog, name="blog"),
-    path('selecciones/', views.selecciones, name="selecciones"),
-    path('estadios/', views.estadios, name="estadios"),
+    path('blog/', views.PostList.as_view(), name='blog'),
+    path('nuevo/', views.CreatePost.as_view(), name='New'),
+    path('<pk>/', views.PostDetails.as_view(), name='Detail'),
+    path('editar/<pk>/', views.ModifyPost.as_view(), name='post_Edit'),
+    path('borrar/<pk>/', views.DeletePost.as_view(), name='post_Delete'),
 ]

@@ -14,10 +14,17 @@
 {% endif %} {% endcomment %}
 
 <h1>FIFA World Cup Qatar 2022</h1>
-
-¡Bienvenido a la página oficial de mundial de Qatar 2022! <br>
-<H1 align="right"> <img src="{{ user.avatar.imagen.url }}", alt="Avatar", width="120" height="120"> </H1>
-
-<center><img id="currentPhoto" src="" onerror="this.onerror=null; this.src='https://www.palco23.com/files//2020/19_redaccion/competiciones/futbol/fifa/fifa-mundial-trofeo-recurso-728.jpg'" alt="" width="1000" height="500">
+<header class="masthead" style="background-image: url('https://static01.nyt.com/images/2022/03/31/multimedia/world-cup-explainer/world-cup-explainer-superJumbo.jpg?quality=75&auto=webp)')">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 left-content-left">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>¡Bienvenido al sitio oficial de Qatar 2022!</h1>
+                    <span class="subheading">{{mensaje}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 
 {% endblock contenido_base %}
