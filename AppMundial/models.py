@@ -6,8 +6,8 @@ from django.contrib.auth.models import User
 class Avatar(models.Model):
     # Vinculo con el usuario
     user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
-    # Subcaperta avatares de media :)
-    imagen = models.ImageField(upload_to='avatares', null=True, blank = True)
+    # Subcaperta  de media :)
+    imagen = models.ImageField(upload_to='thumbnail', null=True, blank = True)
 
     def __str__(self):
         return f"Imagen de: {self.user}"
@@ -31,5 +31,5 @@ class Posts(models.Model):
         return f'{self.titulo} - {self.autor} - {self.creado} '
 
 class thumbnail(models.Model):
-    articulothumb= models.ForeignKey(Posts, on_delete=models.CASCADE)
+    posteothumb= models.ForeignKey(Posts, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='thumbnail', null=True, blank=True)

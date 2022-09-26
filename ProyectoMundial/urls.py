@@ -18,9 +18,8 @@ from xml.dom.minidom import Document
 from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
-from django.contrib.auth.views import LogoutView
 from django.conf.urls.static import static
-from ProyectoMundial.views import login_request, register,  agregar_avatar, ProfileUpdateView,  estadios, selecciones, home
+from ProyectoMundial.views import login_request, register,  agregar_avatar, ProfileUpdateView,  estadios, selecciones, home, Logout
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,7 +28,7 @@ urlpatterns = [
     path('login/', login_request, name = 'login'),
     # path('login/', views.CustomLoginView.as_view, name = 'login'),
     path('login/register/', register, name = 'register'),
-    path('logout/', LogoutView.as_view(template_name='logout.html'), name='logout'),
+    path('logout/', Logout.as_view(), name='logout'),
     # URLS Perfil
     path('editar-perfil/', ProfileUpdateView.as_view(), name="editar_perfil"),
     path('agregar-avatar/', agregar_avatar, name="agregar_avatar"),

@@ -5,34 +5,34 @@
 {% block contenido_base %}
 
 <body>
-    <header class="masthead" style="background-image: url('/media/{{Posts.image}}')">
+    <header class="masthead" style="background-image: url(media/thumbnail/{{posts.image}})">
         <div class="container position-relative px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="row gx-4 gx-lg-5 left-content-left">
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <div class="post-heading">
-                        <h1>{{Posts.titulo}}</h1>
-                        <h2 class="subheading">{{Posts.equipo}}</h2>
+                        <h1>{{posts.titulo}}</h1>
+                        <h2 class="subheading">Equipo: {{posts.equipo}}</h2>
                         <span class="meta">
-                            Posted by
-                            <a href="#!">{{Posts.autor}}</a>
-                            <i>Publicado {{Posts.creado}}</i> 
+                            Usuario:
+                            <a href="#!">{{posts.autor}}</a>
+                            <i>Fecha y hora: {{posts.creado}}</i> 
                         </span>
                     </div>
                 </div>
             </div>
         </div>
     </header>
-    <Posts class="mb-4">
+    <posts class="mb-4">
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
-                    {{Posts.posteo}}
+                    {{posts.posteo}}
                 </div>
             </div>
         </div>
-    </Posts>
+    </posts>
     <span></span>
-   <button type="button" class="btn btn-primary" style="margin: 50px 200px;"><a href="{% url 'blog'%}" style="color:white; text-decoration:none;">Volver</a></button>
+    <p align="right"><button type="button" class="btn btn-primary" style="margin: 50px 200px;"><a href="{% url 'blog'%}" style="color:white; text-decoration:none;">Volver</a></button>
 </body>
 {% endblock contenido_base %}
 </html>

@@ -67,7 +67,7 @@ def login_request(request):
                 login(request=request, user=user)
                 if next_url:
                     return redirect(next_url)
-                return render(request, "AppMundial/02-home.html", {"mensaje":f"Bienvenido {usuario}"})
+                return render(request, "AppMundial/02-home.html", {"mensaje":f"¡Hola {usuario}!"})
             else:
                 return render(request,"AppMundial/02-home.html", {"mensaje":"Error, datos incorrectos"})
         else:
@@ -76,8 +76,9 @@ def login_request(request):
     form = AuthenticationForm()
     return render(request,"AppMundial/06-1-login.html", {'form':form} )
 
-class LogoutView(LogoutView):
+class Logout(LogoutView):
     template_name = 'AppMundial/06-2-logout.html'
+    success_url = reverse_lazy('home')
 
 # Views de Pestañas
 
