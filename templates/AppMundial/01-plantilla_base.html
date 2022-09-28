@@ -32,6 +32,7 @@
                 <a class="navbar-brand" href="{% url 'blog' %}">BLOG</a>
                 <a class="navbar-brand" href="{% url 'selecciones' %}">SELECCIONES</a>
                 <a class="navbar-brand" href="{% url 'estadios' %}">ESTADIOS</a>
+                <a class="navbar-brand" href="{% url 'about_us' %}">ABOUT US</a>
                 {% if not request.user.is_authenticated %}
                 <button type="button" class="btn btn-primary"><a href="{% url 'login' %}" style="color:white; text-decoration:none;">ENTRAR</a></button></li>
                 <button type="button" class="btn btn-primary" style="margin-left: 10px;"><a href="{% url 'register' %}" style="color:white; text-decoration:none;">REGISTRARSE</a></button></li>
@@ -80,7 +81,7 @@
                                 <a href="https://www.facebook.com/FutbolMundialNoticias/"><i class="bi-facebook fs-3"></i></a>
                             </li>
                             <li class="list-inline-item me-4">
-                                <a href="#!"><i class="bi-twitter fs-3"></i></a>
+                                <a href="https://twitter.com/FIFAWorldCup"><i class="bi-twitter fs-3"></i></a>
                             </li>
                             <li class="list-inline-item">
                                 <a href="https://www.instagram.com/fifaworldcup/?hl=es"><i class="bi-instagram fs-3"></i></a>

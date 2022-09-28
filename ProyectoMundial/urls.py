@@ -19,7 +19,7 @@ from django.conf import settings
 from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
-from ProyectoMundial.views import login_request, register,  agregar_avatar, ProfileUpdateView,  estadios, selecciones, home, Logout
+from ProyectoMundial.views import login_request, register,  agregar_avatar, ProfileUpdateView,  estadios, selecciones, home, Logout, integrantes
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -36,6 +36,8 @@ urlpatterns = [
     path('', home, name="home"),
     path('selecciones/', selecciones, name="selecciones"),
     path('estadios/', estadios, name="estadios"),
+    #About US
+    path('about-us/', integrantes , name="about_us"),
     ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

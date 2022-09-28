@@ -78,7 +78,7 @@ def login_request(request):
 
 class Logout(LogoutView):
     template_name = 'AppMundial/06-2-logout.html'
-    success_url = reverse_lazy('home')
+    
 
 # Views de Pestañas
 
@@ -90,3 +90,6 @@ def selecciones(request):
 
 def estadios(request):
     return render(request, "AppMundial/05-estadios.html")
+
+def integrantes(request):
+    return render(request, "AppMundial/08-about_us.html")

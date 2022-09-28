@@ -24,8 +24,9 @@
     {% for Posts in object_list %}
     <div class="post-preview">
         <h2 class="post-title">{{Posts.titulo}}</h2>
-        <h3 class="post-subtitle">{{Posts.equipo}}</h3>
-        <p class="post-meta">{{Posts.creado}}</p>
+        <h4 class="post-subtitle">{{Posts.equipo}}</h4>
+        <p class="post-meta"> Usuario: {{Posts.autor}}</p>
+        <p class="post-meta"> Fecha: {{Posts.creado}}</p>
         <p>
             <button type="button" class="btn btn-primary"><a href="{% url 'Detail' Posts.id %}" style="color:white; text-decoration:none;">Leer más</a></button>
             {% if user.is_superuser %}

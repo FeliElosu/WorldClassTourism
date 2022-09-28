@@ -23,7 +23,7 @@ class CreatePost(CreateView):
     model=Posts
     success_url = reverse_lazy('blog')
     template_name = 'AppMundial/03-2-createpost.html'
-    fields = ['titulo', 'equipo', 'posteo', 'autor','image' ]
+    fields = ['titulo', 'equipo', 'posteo', 'image' ]
 class ModifyPost(UpdateView):
     model=Posts
     template_name = 'AppMundial/03-4-editpost.html'
