@@ -11,27 +11,31 @@ from ProyectoMundial.views import login_request
 
 
 # Vistas para el Blog
+
 class PostList(ListView):
     model=Posts
-    template_name= 'AppMundial/03-blog.html'
+    template_name= '03-blog.html'
+
 
 class PostDetails(DetailView):
     model=Posts
-    template_name= 'AppMundial/03-1-readpost.html'
+    template_name= '03-1-readpost.html'
 
 class CreatePost(CreateView):
     model=Posts
     success_url = reverse_lazy('blog')
-    template_name = 'AppMundial/03-2-createpost.html'
+    template_name = '03-2-createpost.html'
     fields = ['titulo', 'equipo', 'posteo', 'image' ]
+
 class ModifyPost(UpdateView):
     model=Posts
-    template_name = 'AppMundial/03-4-editpost.html'
+    template_name = '03-4-editpost.html'
     success_url = reverse_lazy('blog')
     fields = ['titulo', 'equipo', 'posteo']
+
 class DeletePost(DeleteView):
     model=Posts
-    template_name='AppMundial/03-3-deletepost.html'
+    template_name='03-3-deletepost.html'
     success_url = reverse_lazy('blog')
 
 

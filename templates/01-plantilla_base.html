@@ -33,6 +33,7 @@
                 <a class="navbar-brand" href="{% url 'selecciones' %}">SELECCIONES</a>
                 <a class="navbar-brand" href="{% url 'estadios' %}">ESTADIOS</a>
                 <a class="navbar-brand" href="{% url 'about_us' %}">ABOUT US</a>
+                <a class="navbar-brand" href="{% url 'chatbot' %}">CHAT</a>
                 {% if not request.user.is_authenticated %}
                 <button type="button" class="btn btn-primary"><a href="{% url 'login' %}" style="color:white; text-decoration:none;">ENTRAR</a></button></li>
                 <button type="button" class="btn btn-primary" style="margin-left: 10px;"><a href="{% url 'register' %}" style="color:white; text-decoration:none;">REGISTRARSE</a></button></li>
@@ -68,10 +69,6 @@
                 <div class="row">
                     <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
                         <ul class="list-inline mb-2">
-                            <li class="list-inline-item"><a href="#!">Ayuda</a></li>
-                            <li class="list-inline-item">⋅</li>
-                            <li class="list-inline-item"><a href="#!">Contacto</a></li>
-
                         </ul>
                         <p class="text-muted small mb-4 mb-lg-0">&copy; Mundial de fútbol de Qatar - 2022.</p>
                     </div>

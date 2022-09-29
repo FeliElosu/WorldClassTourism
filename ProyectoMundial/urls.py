@@ -23,6 +23,7 @@ from ProyectoMundial.views import login_request, register,  agregar_avatar, Prof
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('chat-mundial/', include('ChatMundial.urls')),
     path('proyecto-mundial/', include('AppMundial.urls')),
     #Registro usuario y sesion
     path('login/', login_request, name = 'login'),
@@ -38,6 +39,8 @@ urlpatterns = [
     path('estadios/', estadios, name="estadios"),
     #About US
     path('about-us/', integrantes , name="about_us"),
+    #Chat Mundialista
+    path('messages/', include('ChatMundial.urls')),
     ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

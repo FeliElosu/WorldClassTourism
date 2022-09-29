@@ -21,7 +21,7 @@ def register(request):
 
         if form.is_valid():
             form.save()
-            return render(request, "AppMundial/02-home.html", {"mensaje":"Usuario creado con exito :"})
+            return render(request, "02-home.html", {"mensaje":"Usuario creado con exito :"})
         else:
             mensaje = 'Cometiste un error en el registro'
     formulario = UserRegisterForm()  # Formulario vacio para construir el html
@@ -29,13 +29,13 @@ def register(request):
         'form': formulario,
         'mensaje': mensaje
     }
-    return render(request, "AppMundial/06-0-registro.html", context=context)
+    return render(request, "06-0-registro.html", context=context)
 
 class ProfileUpdateView(LoginRequiredMixin, UpdateView):
     model = User
     form_class = UserUpdateForm
     success_url = reverse_lazy('home')
-    template_name = 'AppMundial/07-0-form_perfil.html'
+    template_name = '07-0-form_perfil.html'
 
     def get_object(self, queryset=None):
         return self.request.user
@@ -67,29 +67,29 @@ def login_request(request):
                 login(request=request, user=user)
                 if next_url:
                     return redirect(next_url)
-                return render(request, "AppMundial/02-home.html", {"mensaje":f"¡Hola {usuario}!"})
+                return render(request, "02-home.html", {"mensaje":f"¡Hola {usuario}!"})
             else:
-                return render(request,"AppMundial/02-home.html", {"mensaje":"Error, datos incorrectos"})
+                return render(request,"02-home.html", {"mensaje":"Error, datos incorrectos"})
         else:
-            return render(request,"AppMundial/02-home.html", {"mensaje":"Error, formulario erroneo"})
+            return render(request,"02-home.html", {"mensaje":"Error, formulario erroneo"})
 
     form = AuthenticationForm()
-    return render(request,"AppMundial/06-1-login.html", {'form':form} )
+    return render(request,"06-1-login.html", {'form':form} )
 
 class Logout(LogoutView):
-    template_name = 'AppMundial/06-2-logout.html'
+    template_name = '06-2-logout.html'
     
 
 # Views de Pestañas
 
 def home(request):
-    return render(request, "AppMundial/02-home.html")
+    return render(request, "02-home.html")
 
 def selecciones(request):
-    return render(request, "AppMundial/04-selecciones.html")
+    return render(request, "04-selecciones.html")
 
 def estadios(request):
-    return render(request, "AppMundial/05-estadios.html")
+    return render(request, "05-estadios.html")
 
 def integrantes(request):
-    return render(request, "AppMundial/08-about_us.html")
+    return render(request, "08-about_us.html")
