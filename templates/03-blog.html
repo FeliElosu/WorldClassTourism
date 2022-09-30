@@ -29,11 +29,11 @@
         <p class="post-meta"> Fecha: {{Posts.creado}}</p>
         <p>
             <button type="button" class="btn btn-primary"><a href="{% url 'Detail' Posts.id %}" style="color:white; text-decoration:none;">Leer más</a></button>
-            {% if user.is_superuser %}
+            {% if user.is_authenticated %}
             <button type="button" class="btn btn-primary"><a href="{% url 'post_Edit' Posts.id %}" style="color:white; text-decoration:none;">Editar</a></button>
             <button type="button" class="btn btn-primary"><a href="{% url 'post_Delete' Posts.id %}" style="color:white; text-decoration:none;">Eliminar</a></button>
-            {% endif %}
         </p>
+        {% endif %}
         <!-- Divider-->
         <hr class="my-4" />
     {% empty %}

@@ -3,22 +3,29 @@
 2. [Versiones utilizadas](#technologies)
 3. [Pasos para instalar el proyecto](#installation)
 4. [Colaboración](#collaboration)
-5. [FAQs](#faqs)
+5. [Tareas realizadas](#tareas)
 
 <a name="general-info"></a>
 ### Información General
+~~~
+Profesor: Pedro Rojas Gavidia
 Curso: Python - Comisión #41220 
 Nombre del proyecto: Proyecto Mundial Qatar 2022
 Integrantes: Francisco Terrile, Guillermo Acuña y Francisco Moretti
+Usuario SuperUser: i536719  
+Contraseña: contra12345
+~~~
 
 <a name="technologies"></a>
 ### Versiones utilizadas
+~~~
 *asgiref==3.5.2
 *Django==4.1.1
 *sqlparse==0.4.2
 *pillow==9.2.0
 django-ckeditor==6.5.1
 *GitHub: https://github.com/
+~~~
 
 <a name="installation"></a>
 ## Pasos para instalar el proyecto
@@ -34,8 +41,13 @@ django-ckeditor==6.5.1
 ## Colaboración
 Estaremos muy contentos de poder recibir tu aporte a nuestro proyecto! Revisaremos los cambios que realizaste y los agregaremos al proyecto.
 
-<a name="faqs"></a>
-## FAQs
+<a name="tareas"></a>
+## Tareas Realizadas 
+~~~
+. Francisco Moretti: Trabajó en la creación de modelos, vistas, urls. También en la edición del blog y templates como about us, plantilla base y sección estadio.
+. Guillermo Acuña: Trabajó en la App de Acceso, armado base del proyecto. También en la edición del blog, templates y chat. 
+. Francisco Terrile: Trabajó en el blog, en los modelos, vistas y urls. También en la edición del blog, templates y chat. 
+~~~
 
 
 

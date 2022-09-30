@@ -34,6 +34,7 @@
                 <a class="navbar-brand" href="{% url 'estadios' %}">ESTADIOS</a>
                 <a class="navbar-brand" href="{% url 'about_us' %}">ABOUT US</a>
                 <a class="navbar-brand" href="{% url 'chatbot' %}">CHAT</a>
+                <img src="{{ user.avatar.imagen.url }}" onerror="this.style.display = 'none';" alt="" align="right" width="80" height="80" alt=""> 
                 {% if not request.user.is_authenticated %}
                 <button type="button" class="btn btn-primary"><a href="{% url 'login' %}" style="color:white; text-decoration:none;">ENTRAR</a></button></li>
                 <button type="button" class="btn btn-primary" style="margin-left: 10px;"><a href="{% url 'register' %}" style="color:white; text-decoration:none;">REGISTRARSE</a></button></li>
