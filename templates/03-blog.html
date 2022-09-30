@@ -3,8 +3,8 @@
 {% load static%}
 
 {% block contenido_base %}
-     <!-- Page Header-->
-     <header class="masthead" style="background-image: url('https://static01.nyt.com/images/2022/03/31/multimedia/world-cup-explainer/world-cup-explainer-superJumbo.jpg?quality=75&auto=webp)">
+    <!-- Page Header-->
+    <header class="masthead" style="background-image: url('https://static01.nyt.com/images/2022/03/31/multimedia/world-cup-explainer/world-cup-explainer-superJumbo.jpg?quality=75&auto=webp)">
         <div class="container position-relative px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 left-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
@@ -19,7 +19,7 @@
     <br><p align="right"><button type="button" class="btn btn-primary"><a href="{% url 'New' %}" style="color:white; text-decoration:none;">Crear nuevo posteo</a></button> </p>
 <body>
 <div class="container px-4 px-lg-5">
- <div class="row gx-4 gx-lg-5 left-content-center">
+<div class="row gx-4 gx-lg-5 left-content-center">
     <div class="col-md-10 col-lg-8 col-xl-7">
     {% for Posts in object_list %}
     <div class="post-preview">
@@ -36,6 +36,8 @@
         </p>
         <!-- Divider-->
         <hr class="my-4" />
+    {% empty %}
+        <h1 class="post-meta">No hay entradas nuevas</h1>
     {% endfor %}
         </div>
     </div>

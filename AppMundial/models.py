@@ -1,16 +1,7 @@
 from django.db import models
 from django.conf import settings
 from ckeditor.fields import RichTextField
-from django.contrib.auth.models import User
 
-class Avatar(models.Model):
-    # Vinculo con el usuario
-    user = models.OneToOneField(User, on_delete=models.CASCADE, null=True)
-    # Subcaperta  de media :)
-    imagen = models.ImageField(upload_to='thumbnail', null=True, blank = True)
-
-    def __str__(self):
-        return f"Imagen de: {self.user}"
 
 #Clase para el posteo en Blog
 class Posts(models.Model):
@@ -26,7 +17,10 @@ class Posts(models.Model):
         on_delete=models.CASCADE,
     )
     image = models.ImageField(upload_to='thumbnail', null=True, blank=True)
-
+    
+    class Meta: 
+        ordering = ["-creado"]
+        
     def __str__(self):
         return f'{self.titulo} - {self.autor} - {self.creado} '
 

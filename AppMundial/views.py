@@ -1,13 +1,10 @@
-from unittest import mock
-from django.shortcuts import render, redirect
-from django.http import HttpResponse
-from django.template import Template, Context, loader
+from contextlib import ContextDecorator
 from AppMundial.models import Posts
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.urls import reverse, reverse_lazy
-from ProyectoMundial.views import login_request
+from django.urls import reverse_lazy
+
 
 
 # Vistas para el Blog
@@ -25,7 +22,7 @@ class CreatePost(CreateView):
     model=Posts
     success_url = reverse_lazy('blog')
     template_name = '03-2-createpost.html'
-    fields = ['titulo', 'equipo', 'posteo', 'image' ]
+    fields = ['titulo', 'equipo', 'posteo', 'autor', 'image' ]
 
 class ModifyPost(UpdateView):
     model=Posts
