@@ -1,6 +1,5 @@
 {% extends "01-plantilla_base.html" %}
-
-
+{% load static%}
 {% block contenido_base %}
 
     <!-- Page Header-->
@@ -10,12 +9,18 @@
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <div class="site-heading">
                         <h1>Selecciones</h1>
+                        <h5>¿Por quíen alentás?</h5>
+                        <h5>Creá un nuevo post o entrá al chat para dar tu opinión y debatir.</h5>
+                        <p><b>A continuación te dejamos el detalle:</b></p>
                         <span class="subheading">{{mensaje}}</span>
                     </div>
                 </div>
             </div>
         </div>
     </header>
+    <br>
+    <hr>
 
+    <center><img src="{% static 'AppMundial/assets/img/Selecciones.jpg'%}" alt="Selecciones" width="1000" height="550">
 
-{% endblock contenido_base %}
+        {% endblock contenido_base %}

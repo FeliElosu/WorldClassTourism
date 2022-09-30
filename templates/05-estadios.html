@@ -1,6 +1,5 @@
 {% extends "01-plantilla_base.html" %}
-
-
+{% load static%}
 {% block contenido_base %}
 
     <!-- Page Header-->
@@ -10,11 +9,18 @@
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <div class="site-heading">
                         <h1>Estadios</h1>
+                        <h5>¿Cuál te gusta más?</h5>
+                        <h5>Creá un nuevo post o entrá al chat para dar tu opinión y debatir.</h5>
+                        <p><b>A continuación te dejamos el detalle:</b></p>
                         <span class="subheading">{{mensaje}}</span>
                     </div>
                 </div>
             </div>
         </div>
     </header>
+    <br>
+    <hr>
 
-{% endblock contenido_base %}
+    <center><img src="{% static 'AppMundial/assets/img/Estadios.jpg'%}" alt="Estadios" width="1000" height="650">
+
+        {% endblock contenido_base %}

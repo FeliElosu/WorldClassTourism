@@ -22,8 +22,11 @@ class Posts(models.Model):
         ordering = ["-creado"]
         
     def __str__(self):
-        return f'{self.titulo} - {self.autor} - {self.creado} '
+        return f'{self.titulo} - {self.autor} de fecha {self.creado.day}/{self.creado.month}/{self.creado.day} a las {self.creado.hour}:{self.creado.minute}:{self.creado.second}'
 
 class thumbnail(models.Model):
     posteothumb= models.ForeignKey(Posts, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='thumbnail', null=True, blank=True)
+    
+    def __str__(self):
+        return f"Imagen del post: {self.posteothumb.titulo}"

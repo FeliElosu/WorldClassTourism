@@ -22,6 +22,7 @@
 
         <br><form method="POST" style="margin-left: 10%;">
             {% csrf_token%}
+            {{ form.media}}
             {{ form.as_p}}
             <input type="submit" value="Guardar cambios" class="btn btn-primary">
             <button type="button" class="btn btn-primary" style="margin: 50px 200px;"><a href="{% url 'blog'%}" style="color:white; text-decoration:none;">Cancelar</a></button>
