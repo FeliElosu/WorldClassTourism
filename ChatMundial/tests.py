@@ -16,10 +16,19 @@ class MensajeChatTestCase(TestCase):
         date_prueba = datetime.now()
         usuario_prueba = "".join(lista_letras_usuario)
         sala_prueba = "".join(lista_letras_sala)
-        mensaje_1 = mensaje.objects.create(value=value_prueba, date=date_prueba, usuario=usuario_prueba, sala=sala_prueba)
+        print(value_prueba)
+        print(date_prueba)
+        print(usuario_prueba)
+        print(sala_prueba)
+           
+        mensaje_1 = mensaje.objects.create(value=value_prueba, date=date_prueba, 
+                                           usuario=usuario_prueba, sala=sala_prueba)
 
         self.assertIsNotNone(mensaje_1.id)
         self.assertEqual(mensaje_1.value, value_prueba)
         self.assertEqual(mensaje_1.date, date_prueba)
         self.assertEqual(mensaje_1.usuario, usuario_prueba)
         self.assertEqual(mensaje_1.sala, sala_prueba)
+
+# Test 2: Ver correspondiente archivo tests.py dentro de app 'AppMundial'.
+# Test 3: Ver correspondiente archivo tests.py dentro de app 'Acceso'.
