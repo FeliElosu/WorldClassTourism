@@ -8,6 +8,7 @@ from django.urls import reverse, reverse_lazy
 from django.views.generic import UpdateView, UpdateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
+from .models import Avatar
 #Vistas de Usuarios
 
 def register(request):
@@ -48,6 +49,22 @@ def agregar_avatar(request):
 
     form = AvatarFormulario() #Formulario vacio para construir el html
     return render(request, "07-1-form_avatar.html", {"form":form})
+
+def editar_avatar(request):
+        try:
+            avatar_instance = Avatar.objects.get(user=request.user)
+        except Avatar.DoesNotExist:
+            avatar_instance = Avatar(user=request.user)
+        if request.method == 'POST':
+            form = AvatarFormulario(request.POST or None, request.FILES, instance=avatar_instance)
+            if form.is_valid():
+                avatar = form.save(commit=False)
+                avatar.user = request.user
+                form.save()
+            return redirect(reverse('home'))
+        form = AvatarFormulario()
+        return render(request, "07-2-editar_avatar.html", {"form":form})
+
 
 def login_request(request):
     next_url = request.GET.get('next')

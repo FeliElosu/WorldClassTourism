@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from django.conf.urls.static import static
 from ProyectoMundial.views import estadios, selecciones, home, integrantes
-from Acceso.views import login_request, register,  agregar_avatar, ProfileUpdateView,Logout
+from Acceso.views import login_request, register,  agregar_avatar, ProfileUpdateView,Logout, editar_avatar
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -32,6 +32,7 @@ urlpatterns = [
     # URLS Perfil
     path('editar-perfil/', ProfileUpdateView.as_view(), name="editar_perfil"),
     path('agregar-avatar/', agregar_avatar, name="agregar_avatar"),
+    path('editar-avatar/', editar_avatar, name="editar_avatar"),
     #Pestaña Principal
     path('', home, name="home"),
     path('selecciones/', selecciones, name="selecciones"),
