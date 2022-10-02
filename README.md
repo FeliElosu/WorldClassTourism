@@ -11,6 +11,7 @@
 Profesor: Pedro Rojas Gavidia
 Curso: Python - Comisión #41220 
 Nombre del proyecto: Proyecto Mundial Qatar 2022
+Link al video: https://www.loom.com/share/d0b87ce9e8ee4d319a6260e57546450e
 Integrantes: Francisco Terrile, Guillermo Acuña y Francisco Moretti
 Usuario SuperUser: i536719  
 Contraseña: contra12345
@@ -23,7 +24,7 @@ Contraseña: contra12345
 *Django==4.1.1
 *sqlparse==0.4.2
 *pillow==9.2.0
-django-ckeditor==6.5.1
+*django-ckeditor==6.5.1
 *GitHub: https://github.com/
 ~~~
 
