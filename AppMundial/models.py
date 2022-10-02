@@ -11,10 +11,7 @@ class Posts(models.Model):
     #Caratula de Inicio
     creado = models.DateTimeField(auto_now_add=True)
     actualizado = models.DateTimeField(auto_now=True)
-    autor = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE,
-    )
+    autor = models.ForeignKey(settings.AUTH_USER_MODEL,on_delete=models.CASCADE,)
     image = models.ImageField(upload_to='thumbnail/', null=True, blank=True)
     
     class Meta: 
